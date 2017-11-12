@@ -68,8 +68,42 @@ const RootQuery = new GraphQLObjectType({
           }
         }
       }
-  
 
+
+});
+
+
+//Mutations
+const mutation = new GraphQLObjectType({
+  name:"Mutation"
+  fields:{
+    addCustomer:{
+      type:CustomerType,
+      args:{
+        name:{type: newGraphQlNonNull(GraphQLString)},
+        email:{type: newGraphQlNonNull(GraphQLString)},
+        age:{type: newGraphQlNonNull(GraphQLString)},
+      },
+      resolve(parentValue, args){
+        return axios.post("http://localhost:3000/customers", {
+          name:args.name,
+          email:args.email,
+          age: args.age
+        })
+        .then(res => res.data);
+      }
+    },
+    deleteCustomer:{
+      type: CustomerType,
+      args:{
+        id:{type: new newGraphQlNonNull(GraphQLString)}
+      },
+      resolve(parentValue, args){
+        return axios.delete("http://localhost:3000/customers/"+args.id)
+        .then(res => res.data);
+      }
+    }
+  }
 });
 
 
@@ -78,4 +112,5 @@ const RootQuery = new GraphQLObjectType({
 module.exports = new GraphQLSchema ({
   //Need to take in root query - baseline for all queries
   query: RootQuery
+  mutatuon
 });
