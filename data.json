@@ -2,19 +2,19 @@
   "customers":[
     {
       "id":"1",
-      "name":"John Doe",
+      "name":"John Doey",
       "email": "jdoe@gmail.com",
       "age":35
   },
       {
         "id":"2",
-        "name":"Steve Smith",
+        "name":"Stevey Smith",
         "email": "steve@gmail.com",
         "age":25
     },
     {
         "id":"3",
-        "name":"Sara Williams",
+        "name":"Sarana Williams",
         "email": "sara@gmail.com",
         "age":32
     },
@@ -29,7 +29,7 @@
         "name":"isadora agustina",
         "email": "isa@gmail.com",
         "age":32
-        
+
     }
   ]
 }
