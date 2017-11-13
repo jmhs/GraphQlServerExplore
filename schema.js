@@ -75,14 +75,14 @@ const RootQuery = new GraphQLObjectType({
 
 //Mutations
 const mutation = new GraphQLObjectType({
-  name:"Mutation"
+  name:"Mutation",
   fields:{
     addCustomer:{
       type:CustomerType,
       args:{
-        name:{type: newGraphQlNonNull(GraphQLString)},
-        email:{type: newGraphQlNonNull(GraphQLString)},
-        age:{type: newGraphQlNonNull(GraphQLString)},
+        name:{type: new GraphQLNonNull(GraphQLString)},
+        email:{type: new GraphQLNonNull(GraphQLString)},
+        age:{type: new GraphQLNonNull(GraphQLString)},
       },
       resolve(parentValue, args){
         return axios.post("http://localhost:3000/customers", {
@@ -96,13 +96,27 @@ const mutation = new GraphQLObjectType({
     deleteCustomer:{
       type: CustomerType,
       args:{
-        id:{type: new newGraphQlNonNull(GraphQLString)}
+        id:{type: new GraphQLNonNull(GraphQLString)}
       },
       resolve(parentValue, args){
         return axios.delete("http://localhost:3000/customers/"+args.id)
         .then(res => res.data);
       }
-    }
+    },
+    editCustomer:{
+      type:CustomerType,
+      args:{
+        id:{type: new GraphQLNonNull(GraphQLString)},
+        name:{type: GraphQLString},
+        email:{type: GraphQLString},
+        age:{type: GraphQLString},
+      },
+      resolve(parentValue, args){
+        return axios.patch("http://localhost:3000/customers/"+args.id, {args
+        })
+        .then(res => res.data);
+      }
+    },
   }
 });
 
@@ -111,6 +125,6 @@ const mutation = new GraphQLObjectType({
 //export as a module
 module.exports = new GraphQLSchema ({
   //Need to take in root query - baseline for all queries
-  query: RootQuery
-  mutatuon
+  query: RootQuery,
+  mutation
 });

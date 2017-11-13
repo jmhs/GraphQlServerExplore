@@ -1,35 +1,38 @@
 {
-  "customers":[
+  "customers": [
     {
-      "id":"1",
-      "name":"John Doey",
+      "id": "1",
+      "name": "John Doey",
       "email": "jdoe@gmail.com",
-      "age":35
-  },
-      {
-        "id":"2",
-        "name":"Stevey Smith",
-        "email": "steve@gmail.com",
-        "age":25
+      "age": 35
     },
     {
-        "id":"3",
-        "name":"Sarana Williams",
-        "email": "sara@gmail.com",
-        "age":32
+      "id": "2",
+      "name": "Stevey Smith",
+      "email": "steve@gmail.com",
+      "age": 25,
+      "args": {
+        "id": "2",
+        "age": "50"
+      }
     },
     {
-        "id":"4",
-        "name":"CoCo ichibanya",
-        "email": "CoCo@gmail.com",
-        "age":32
+      "id": "3",
+      "name": "Sarana Williams",
+      "email": "sara@gmail.com",
+      "age": 32
     },
     {
-        "id":"5",
-        "name":"isadora agustina",
-        "email": "isa@gmail.com",
-        "age":32
-
+      "id": "5",
+      "name": "isadora agustina",
+      "email": "isa@gmail.com",
+      "age": 32
+    },
+    {
+      "name": "Harry Puter",
+      "email": "HarryPuter@hotmale.com",
+      "age": "34",
+      "id": "f9tznbA"
     }
   ]
 }
